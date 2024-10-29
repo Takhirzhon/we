@@ -44,3 +44,21 @@ jobs:
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
           ./cc-test-reporter after-build --exit-code $?
+
+
+          name: Node.js CI
+
+      - name: Clean npm cache and install dependencies
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
+          npm install
+
+      - name: Check ESLint Permissions
+        run: |
+          ls -l node_modules/.bin/eslint
+          chmod +x node_modules/.bin/eslint
+
+      - name: Run ESLint
+        run: npx eslint .
+
