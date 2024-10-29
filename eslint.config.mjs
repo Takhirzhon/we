@@ -5,9 +5,9 @@ export default [
   {
     files: ["**/*.js"],
     languageOptions: {
-      sourceType: "commonjs",
+      sourceType: "module", // Change this to "module"
       globals: {
-        ...globals.node,  // Добавляем глобальные переменные Node.js
+        ...globals.node,  // Include Node.js global variables
       },
     },
   },

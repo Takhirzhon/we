@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const formatAst = (ast, depth = 1) => {
     const indent = (depth) => ' '.repeat(depth * 4 - 2);
     const formatValue = (value, depth) => {
@@ -7,7 +9,7 @@ const formatAst = (ast, depth = 1) => {
         const keys = Object.keys(value);
         const result = keys.map((key) => `${indent(depth + 1)}  ${key}: ${formatValue(value[key], depth + 1)}`);
         return `{
-  ${result.join('\n')}
+  ${result.join('\n')}}
   ${indent(depth)}  }`;
     };
 

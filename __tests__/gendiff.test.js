@@ -26,6 +26,8 @@ test('genDiff compares two YAML files', () => {
     expect(genDiff(file1, file2)).toBe(expected);
 });*/
 
+/* global test, expect */
+
 const genDiff = require('../gendiff');
 
 test('genDiff compares two JSON files with plain format', () => {
