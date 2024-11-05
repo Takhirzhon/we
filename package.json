@@ -1,38 +1,25 @@
 {
-  "name": "@hexlet/code",
+  "name": "task1",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/Katerus16/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Katerus16/frontend-project-46/actions)",
-  "main": "index.js",
-  "type": "module",
+  "description": "Выполнение первого задания",
+  "main": "gendiff.js",
   "scripts": {
-    "test": "npx jest"
+    "gendiff": "node gendiff.js",
+    "lint": "eslint .",
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
-  "bin": {
-    "gendiff": "bin/gendiff.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Katerus16/frontend-project-46.git"
-  },
-  "author": "katerus16",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Katerus16/frontend-project-46/issues"
-  },
-  "homepage": "https://github.com/Katerus16/frontend-project-46#readme",
   "dependencies": {
     "commander": "^12.1.0",
-    "fs": "^0.0.1-security",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint": "^9.13.0",
     "globals": "^15.11.0",
-    "jest": "^29.7.0",
-    "jest-cli": "^29.7.0"
+    "jest": "^29.7.0"
   }
 }
