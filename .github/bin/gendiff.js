@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import path from 'path';
-import { parseJsonFile } from '../../parser.js';
+import { parseJsonFile } from '@hexlet/code';
 
 const program = new Command();
 
