@@ -23,6 +23,6 @@ settings:
   import/resolver:
     alias:
       map:
-        - "../../": ".parse.js" 
+        - "@hexlet/code": "./parse.js"  # Adjust this path if .parse.js is in another location
       extensions:
         - .js
