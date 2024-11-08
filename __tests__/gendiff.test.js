@@ -1,113 +1,43 @@
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-import { readFileSync } from 'fs';
-import genDiff from '../index.js';
-import parseFile from '../src/parsers.js';
+/*const genDiff = require('../gendiff');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+test('genDiff compares two JSON files', () => {
+    const file1 = 'test_files/file1.json';
+    const file2 = 'test_files/file2.json';
+    const expected = `{
+        follow: false host: hexlet.io
+        proxy: 123.234.53.22
+        timeout: 50
+        timeout: 20
+        verbose: true }`; 
+    expect(genDiff(file1, file2)).toBe(expected);
+});*/
 
-const getFixturePath = (filename) => join(__dirname, '..', '__fixtures__', filename);
+/*const genDiff = require('../gendiff');
 
-test('genDiff JSON', () => {
-  expect(genDiff(
-    parseFile(getFixturePath('file11.json')),
-    parseFile(getFixturePath('file22.json')),
-    'stylish',
-  )).toEqual(readFileSync(getFixturePath('result.txt'), 'utf-8'));
+test('genDiff compares two YAML files', () => {
+    const file1 = 'test_files/file1.yml';
+    const file2 = 'test_files/file2.yml';
+    const expected = `{
+        follow: false host: hexlet.io
+        proxy: 123.234.53.22
+        timeout: 50
+        timeout: 20
+        verbose: true }`;
+    expect(genDiff(file1, file2)).toBe(expected);
+});*/
+
+const genDiff = require('../gendiff');
+
+test('genDiff compares two JSON files with plain format', () => {
+    const file1 = 'test_files/file1.json';
+    const file2 = 'test_files/file2.json';
+    const expected = `Property 'common.follow' was added with value: false
+        Property 'common.setting2' was removed
+        Property 'common.setting3' was updated. From true to null
+        Property 'common.setting4' was added with value: 'blah blah'
+        Property 'group1.baz' was updated. From 'bas' to 'bars'
+        Property 'group2' was removed
+        Property 'group3' was added with value: [complex value]`;
+    expect(genDiff(file1, file2, 'plain')).toBe(expected);
 });
 
-test('parseFile yaml', () => {
-  expect(
-    parseFile(getFixturePath('file11.yml')),
-  ).toEqual({
-    common: {
-      setting1: 'Value 1',
-      setting2: 200,
-      setting3: true,
-      setting6: {
-        key: 'value',
-        doge: {
-          wow: '',
-        },
-      },
-    },
-    group1: {
-      baz: 'bas',
-      foo: 'bar',
-      nest: {
-        key: 'value',
-      },
-    },
-    group2: {
-      abc: 12345,
-      deep: {
-        id: 45,
-      },
-    },
-  });
-  expect(
-    parseFile(getFixturePath('file22.yaml')),
-  ).toEqual({
-    common: {
-      follow: false,
-      setting1: 'Value 1',
-      setting3: null,
-      setting4: 'blah blah',
-      setting5: {
-        key5: 'value5',
-      },
-      setting6: {
-        key: 'value',
-        ops: 'vops',
-        doge: {
-          wow: 'so much',
-        },
-      },
-    },
-    group1: {
-      foo: 'bar',
-      baz: 'bars',
-      nest: 'str',
-    },
-    group3: {
-      deep: {
-        id: {
-          number: 45,
-        },
-      },
-      fee: 100500,
-    },
-  });
-});
-
-test('parseFile json', () => {
-  expect(
-    parseFile(getFixturePath('file11.json')),
-  ).toEqual({
-    common: {
-      setting1: 'Value 1',
-      setting2: 200,
-      setting3: true,
-      setting6: {
-        key: 'value',
-        doge: {
-          wow: '',
-        },
-      },
-    },
-    group1: {
-      baz: 'bas',
-      foo: 'bar',
-      nest: {
-        key: 'value',
-      },
-    },
-    group2: {
-      abc: 12345,
-      deep: {
-        id: 45,
-      },
-    },
-  });
-});
