@@ -17,4 +17,12 @@ rules:
     - ignorePackages
     - js: always
   no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
-  no-prototype-builtins: 0 
+  no-prototype-builtins: 0
+
+settings:
+  import/resolver:
+    alias:
+      map:
+        - "../../": ".parse.js" 
+      extensions:
+        - .js
