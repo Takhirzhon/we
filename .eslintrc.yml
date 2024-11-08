@@ -18,7 +18,6 @@ rules:
     - js: always
   no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
   no-prototype-builtins: 0
-  import/no-relative-packages: "off"  # Disable this rule to allow relative imports
 
 settings:
   import/resolver:
