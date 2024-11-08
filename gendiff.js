@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { Command } = require('commander');
-const parseFile = require('./parser.js');
+const parseFile = require('./parser')
 const buildAst = require('./buildAst');
 const getFormatter = require('./formatters');
 const program = new Command();
