@@ -18,5 +18,5 @@ gendiff:
 test:
 	npx jest
 
-run:
-	node __fixtures__/file1.json __fixtures__/file2.json
+test-coverage:
+	npx jest --coverage --coverageProvider=v8
